@@ -1,0 +1,50 @@
+.nav_name {
+  list-style: none;
+  display: flex;
+  margin-left: 12px;
+}
+.nav_heading{
+	margin-top: 10px;
+}
+span{
+	color: red;
+}
+.nav_name img {
+  height: 5rem;
+}
+.nav_logos{
+	margin-top: 20px;
+}
+.search {
+  height: 3rem;
+  margin-right: 1.5rem;
+}
+.heart {
+  height: 3rem;
+  margin-right: 1.5rem;
+}
+.cart {
+  height: 2.5rem;
+  margin-right: 1.5rem;
+}
+.nav_ins {
+  list-style: none;
+  display: flex;
+}
+.nav_ins li {
+  margin-left: 5rem;
+}
+.navbar {
+  /* position: absolute; */
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+	font-size:x-large;
+}
+.nav_login{
+	border: 1px solid black;
+	margin-top: 10px;
+	border-radius: 20px;
+	width: 20%;
+	padding: 4%;
+	height: 30%;
+}

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const validator = require('validator');
 function caps(word) {
   return `${word[0].toUpperCase()}${word.substring(1)}`;
@@ -39,5 +40,19 @@ userSchema.virtual('name').get(function () {
   return `${caps(this.fName)} ${caps(this.lName)}`;
 });
 
+userSchema.pre('save', async function (next) {
+  this.password = await bcrypt.hash(this.password, 12);
+  next();
+});
+userSchema.pre('/^find/', async function (next) {
+  this.find({ active: { $ne: false } });
+  next();
+});
+userSchema.methods.correctPassword = async function (
+  userPassword,
+  givenPassword
+) {
+  return await bcrypt.compare(userPassword, givenPassword);
+};
 const User = mongoose.model('User', userSchema);
 module.exports = User;

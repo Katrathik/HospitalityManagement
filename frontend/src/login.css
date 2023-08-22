@@ -1,4 +1,7 @@
-body{
+.myLogin{
+	position: absolute;
+	width: 100%;
+	height: 100%;
   /* background-image: url(http://artfcity.com/wp-content/uploads/2014/06/Nickbriz.gif); */
 	/* background-image: url(http://artfcity.com/wp-content/uploads/2014/06/Nickbriz.gif); */
 	background-image: url(../public/image/signupBackground.jpg);

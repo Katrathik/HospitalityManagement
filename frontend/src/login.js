@@ -1,7 +1,7 @@
 import './login.css';
 import { useState } from 'react';
 import { signError } from './error/loginError';
-
+// import {onNav}
 function LoginSign() {
   const [loginTransform, setLoginTransform] = useState('');
   const [error, setError] = useState({ isError: false, message: 'Nothing' });
@@ -18,7 +18,7 @@ function LoginSign() {
     console.log('error = ', hasError, errorMessages);
     setError({ isError: error, message: errorMessages });
     if (loginDetails.isError) return console.log('--ERROR==');
-
+    let responses =''
     fetch('http://localhost:9000/api/loginSign', {
       method: 'post',
       headers: {
@@ -30,12 +30,20 @@ function LoginSign() {
         if (!res.ok) {
           throw new Error(`Network response was not ok: ${res.status}`);
         }
-        return res.json();
+        responses = res.json();
+        if (responses.status === 'success'){
+          window.setTimeout(()=>{
+            // location.assign('/')
+          })
+        }
+        return responses
       })
       .then((data) => data)
       .catch((error) => console.error('Fetch error:', error));
+
   };
   return (
+    <div className='myLogin'>
     <div className='loginSign'>
       <div
         className='loginAndSign'
@@ -156,6 +164,7 @@ function LoginSign() {
           <div className='lgsubmit'>Login</div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
