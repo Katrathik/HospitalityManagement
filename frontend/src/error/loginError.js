@@ -23,10 +23,10 @@ function containsNumber(str) {
   }
   return false;
 }
-function containsSpecialCharacter(str) {
-  const specialCharacterRegex = /[^a-zA-Z0-9]/;
-  return specialCharacterRegex.test(str);
-}
+// function containsSpecialCharacter(str) {
+//   const specialCharacterRegex = /[^a-zA-Z0-9]/;
+//   return specialCharacterRegex.test(str);
+// }
 
 function containsLowercase(str) {
   for (let i = 0; i < str.length; i++) {

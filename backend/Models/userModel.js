@@ -4,6 +4,20 @@ const validator = require('validator');
 function caps(word) {
   return `${word[0].toUpperCase()}${word.substring(1)}`;
 }
+
+const medicineSchema = new mongoose.Schema({
+  tablets: [{ type: 'string' }],
+  doctor_id: {
+    type: 'string',
+    required: [true, 'Doctor should advice patient'],
+  },
+  date: { type: 'date', required: [true, 'Date should be there'] },
+  reason: [{ type: 'string', required: [true, 'Reason should be there'] }],
+  bill: {
+    type: 'string',
+    default: 200,
+  },
+});
 const userSchema = new mongoose.Schema(
   {
     fName: String,
@@ -27,11 +41,28 @@ const userSchema = new mongoose.Schema(
       minlength: 8,
       select: false,
     },
+    role: {
+      type: 'string',
+      default: 'patient',
+    },
     photo: String,
     passwordChangedAt: { type: Date, default: Date.now() },
     passwordResetToken: String,
     passwordResetExpires: Date,
     active: { type: Boolean, default: true, select: false },
+    address: [
+      {
+        type: 'string',
+        required: [true, 'Please enter the address'],
+      },
+    ],
+    foodAddress: [
+      {
+        type: 'string',
+        required: [true, 'Please enter the address'],
+      },
+    ],
+    treatment: [medicineSchema],
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );

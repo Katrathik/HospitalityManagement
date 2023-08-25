@@ -1,0 +1,47 @@
+.map {
+  /* position: absolute; */
+  margin-top: 10rem;
+  height: 50rem;
+  width: 100%;
+  background-color: white;
+}
+.map_grid {
+  position: relative;
+  /* display: grid; */
+  /* position: fixed; */
+  /* grid-template-columns: 1fr 5fr; */
+  height: 45rem;
+  grid-column-gap: 0;
+}
+.map_karnataka {
+  position: absolute;
+  /* background-color: blue; */
+  width: 100%;
+  z-index: 100;
+}
+.map_karnataka img {
+  height: 45rem;
+	/* position: fixed; */
+}
+.leaflet-container {
+  /* position: relative; */
+  z-index: 1;
+  height: 45rem;
+}
+.map_grid {
+  background-color: gray;
+}
+
+.circle {
+  position: absolute;
+  height: 45rem;
+  margin-left: 0px;
+  width: 40rem;
+  /* border-radius: 50%; */
+  clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  z-index: 23;
+  background-color: white;
+}
+
